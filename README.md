@@ -30,7 +30,10 @@ curl -X POST http://localhost:8080/api/v1/stories/ -d \
 -H "Content-Type: application/json"
 ```
 
-Images will be generated under `$project/assets/stories/`
+Images will be generated under `$project/assets/stories/`, ie:
+![image info](https://github.com/Alevsk/Instagram-stories/blob/master/assets/stories/a2fbdf34a845457fa8dbb6e4a0e3882d.png?raw=true)
+
+
 
 ### Help
 
