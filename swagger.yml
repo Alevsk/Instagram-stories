@@ -1,0 +1,74 @@
+swagger: "2.0"
+
+info:
+  title: Instagram Stories
+  version: 0.1.0
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+schemes:
+  - http
+
+basePath: /api/v1
+
+securityDefinitions:
+  key:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: "https://www.alevsk.com"
+    tokenUrl: "https://www.alevsk.com"
+
+security:
+  - key: []
+
+paths:
+  /stories:
+    post:
+      summary: Create new story
+      operationId: StoryCreate
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/story"
+      responses:
+        200:
+          description: A successful response.
+        default:
+          description: Generic error response.
+          schema:
+            $ref: "#/definitions/error"
+      security: []
+      tags:
+        - UserAPI
+
+
+definitions:
+  error:
+    type: object
+    required:
+      - message
+    properties:
+      code:
+        type: integer
+        format: int64
+      message:
+        type: string
+
+  principal:
+    type: string
+
+  story:
+    type: object
+    properties:
+      title:
+        type: string
+      source:
+        type: string
+      url:
+        type: string
